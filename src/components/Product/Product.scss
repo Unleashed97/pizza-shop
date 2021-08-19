@@ -1,0 +1,128 @@
+.product {
+    display: flex;
+    flex-direction: column;
+    width: 23%;
+
+    font-family: 'Proxima Nova', sans-serif;
+    font-weight: 700;
+
+    &__image {
+        display: block;
+        min-width: 100%;
+        height: auto;
+        margin-bottom: 5px;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: 800;
+        margin-top: 11px;
+        margin-bottom: 22px;
+        text-align: center;
+    }
+
+    &__params {
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        border-radius: 10px;
+        background-color: #f3f3f3;
+        margin-bottom: 17px;
+    }
+
+    &__params-dough {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+        .product__params-btn {
+            width: 48%;
+        }
+    }
+
+    &__params-size {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        .product__params-btn {
+            width: 31%;
+        }
+    }
+
+    &__params-btn {
+        font-family: 'Proxima Nova', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+
+        border: 0;
+        border-radius: 5px;
+        background: none;
+        padding: 6px 10px;
+        transition: background-color 0.2s linear, box-shadow 0.2s linear;
+
+        &:hover {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(#000, 0.04);
+        }
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__price {
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    &__add-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        font-family: 'Proxima Nova', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+
+        padding: 9px 14px;
+        background-color: #fff;
+        border: 1px solid #eb5a1e;
+        border-radius: 30px;
+        color: #eb5a1e;
+        transition: background-color 0.2s linear, color 0.2s linear;
+
+        svg {
+            margin-right: 8px;
+        }
+        p {
+            margin-right: 8px;
+        }
+        .plus-icon {
+            fill: #eb5a1e;
+            transition: fill 0.2s linear;
+        }
+        &:hover {
+            background-color: #eb5a1e;
+            color: #fff;
+            .plus-icon {
+                fill: #fff;
+            }
+
+            .product__counter {
+                background-color: #fff;
+                color: #eb5a1e;
+            }
+        }
+    }
+    &__counter {
+        font-size: 13px;
+        font-weight: 700;
+        padding: 3px 7px;
+        border-radius: 50%;
+        background-color: #eb5a1e;
+        color: #fff;
+        transition: background-color 0.2s linear, color 0.2s linear;
+    }
+}

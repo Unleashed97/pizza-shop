@@ -1,0 +1,15 @@
+.section {
+    font-family: 'Proxima Nova', sans-serif;
+    margin: 32px 0;
+
+    &__title {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 35px;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+    }
+}
