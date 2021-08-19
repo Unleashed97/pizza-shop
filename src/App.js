@@ -1,14 +1,13 @@
 import React from 'react'
 
-import Logo from './components/Logo/Logo.js'
+import Header from './components/Header/Header'
 
 import './scss/style.scss'
 
 function App() {
     return (
-        <div className="App">
-            <h1>Pizza shop</h1>
-            <Logo />
+        <div className="wrapper">
+            <Header />
         </div>
     )
 }
