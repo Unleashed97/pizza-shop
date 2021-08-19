@@ -1,0 +1,14 @@
+// reset.css
+@import 'vendor/reset';
+
+// vars
+@import 'vars';
+
+// fonts
+@import 'fonts';
+
+html,
+body {
+    font-family: Proxima Nova;
+    font-weight: 700;
+}
