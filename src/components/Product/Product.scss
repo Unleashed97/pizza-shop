@@ -130,5 +130,9 @@
         background-color: #eb5a1e;
         color: #fff;
         transition: background-color 0.2s linear, color 0.2s linear;
+
+        &--show {
+            display: block;
+        }
     }
 }

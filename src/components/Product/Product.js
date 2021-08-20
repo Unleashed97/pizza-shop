@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import classNames from 'classnames'
 
 import './Product.scss'
 
 const Product = (props) => {
+    let [counterOfProduct, setCounterOfProduct] = useState(0)
+
+    let [selectDough, setSelectDough] = useState('')
+
+    let productCounter = classNames('product__counter', {
+        'product__counter--show': counterOfProduct,
+    })
+    const productAddHandler = () => {
+        setCounterOfProduct(++counterOfProduct)
+    }
+
     return (
         <div className="product">
             <img
@@ -30,7 +42,10 @@ const Product = (props) => {
             </div>
             <footer className="product__footer">
                 <span className="product__price">{props.price}</span>
-                <button className="product__add-btn">
+                <button
+                    className="product__add-btn"
+                    onClick={productAddHandler}
+                >
                     <svg
                         width="12"
                         height="12"
@@ -44,7 +59,7 @@ const Product = (props) => {
                         />
                     </svg>
                     <p>Добавить</p>
-                    <span className="product__counter"></span>
+                    <span className={productCounter}>{counterOfProduct}</span>
                 </button>
             </footer>
         </div>
