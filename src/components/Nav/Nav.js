@@ -9,7 +9,9 @@ const Nav = () => {
         <nav className="nav">
             <ul className="nav__list">
                 <li className="nav__item">
-                    <button className="nav__item-btn">Все</button>
+                    <button className="nav__item-btn nav__item-btn--active">
+                        Все
+                    </button>
                 </li>
                 <li className="nav__item">
                     <button className="nav__item-btn">Мясные</button>

@@ -2,7 +2,7 @@ import React from 'react'
 
 import './NavSorting.scss'
 
-export const NavSorting = () => {
+const NavSorting = () => {
     return (
         <div className="nav-sorting">
             <svg

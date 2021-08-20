@@ -2,7 +2,7 @@ import React from 'react'
 
 import './Product.scss'
 
-const Product = () => {
+const Product = (props) => {
     return (
         <div className="product">
             <img
@@ -10,22 +10,26 @@ const Product = () => {
                 alt=""
                 className="product__image"
             />
-            <h3 className="product__title">Title</h3>
+            <h3 className="product__title">{props.title}</h3>
             <div className="product__params">
                 <div className="product__params-dough">
-                    <button className="product__params-btn">Тонкое</button>
+                    <button className="product__params-btn product__params-btn--active">
+                        Тонкое
+                    </button>
                     <button className="product__params-btn">
                         Традиционное
                     </button>
                 </div>
                 <div className="product__params-size">
-                    <button className="product__params-btn">26 см.</button>
+                    <button className="product__params-btn product__params-btn--active">
+                        26 см.
+                    </button>
                     <button className="product__params-btn">30 см.</button>
                     <button className="product__params-btn">40 см.</button>
                 </div>
             </div>
             <footer className="product__footer">
-                <span className="product__price">от 395 ₽</span>
+                <span className="product__price">{props.price}</span>
                 <button className="product__add-btn">
                     <svg
                         width="12"

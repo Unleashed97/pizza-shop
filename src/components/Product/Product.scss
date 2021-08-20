@@ -64,6 +64,11 @@
             background-color: #fff;
             box-shadow: 0 2px 4px rgba(#000, 0.04);
         }
+
+        &--active {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(#000, 0.04);
+        }
     }
 
     &__footer {
@@ -117,6 +122,7 @@
         }
     }
     &__counter {
+        display: none;
         font-size: 13px;
         font-weight: 700;
         padding: 3px 7px;

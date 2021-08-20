@@ -26,9 +26,13 @@
             margin-right: 0;
         }
 
-        &:hover {
+        &--active {
             background-color: #282828;
             color: #fff;
+        }
+
+        &:not(.nav__item-btn--active):hover {
+            background-color: darken(#f9f9f9, 4%);
         }
     }
 }
