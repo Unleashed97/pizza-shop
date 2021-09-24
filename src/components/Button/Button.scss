@@ -1,0 +1,101 @@
+.btn {
+    font-family: 'Proxima Nova', sans-serif;
+    font-weight: 700;
+    border: 0;
+    background: none;
+    cursor: poiner;
+    padding: 0;
+
+    &--product-add {
+        border: 1px solid #eb5a1e;
+        border-radius: 30px;
+        padding: 11px 21px;
+        color: #eb5a1e;
+        font-size: 16px;
+        background-color: #fff;
+        transition: background-color 0.2s linear, color 0.2s linear;
+
+        &:hover {
+            background-color: #eb5a1e;
+            color: #fff;
+        }
+    }
+
+    &--nav {
+        border-radius: 30px;
+        font-size: 16px;
+        color: #2c2c2c;
+        background-color: #f9f9f9;
+        padding: 13px 16px;
+        transition: background-color 0.2s linear, color 0.2s linear;
+
+        // &:not(.active):hover
+        &:hover {
+            background-color: darken(#f9f9f9, 4%);
+        }
+
+        &:focus {
+            background-color: #282828;
+            color: #fff;
+        }
+
+        // &--active
+    }
+
+    // &--sorting {
+    //     font-size: 14px;
+    //     font-weight: 400;
+    //     color: #eb5a1e;
+    //     text-decoration: underline dashed;
+    //     transition: text-shadow 0.2s linear;
+
+    //     &:hover,
+    //     &:focus {
+    //         text-shadow: 0 0 0.9px #eb5a1e, 0 0 0.9px #eb5a1e;
+    //     }
+    // }
+
+    // &--sorting-list-btn {
+    //     width: 100%;
+    //     text-align: left;
+    //     padding: 10px 18px;
+    //     font-size: 14px;
+    //     font-weight: 400;
+    //     color: #000;
+    //     transition: background-color 0.2s linear, text-shadow 0.2s linear,
+    //         color 0.2s linear;
+
+    //     &:hover {
+    //         background-color: rgba(#fe5f1e, 0.05);
+    //         color: #eb5a1e;
+    //         text-shadow: 0 0 0.9px #eb5a1e, 0 0 0.9px #eb5a1e;
+    //     }
+    // }
+
+    &--params {
+        border-radius: 5px;
+        padding: 6px 10px;
+        color: #2c2c2c;
+        font-size: 14px;
+        transition: background-color 0.2s linear, box-shadow 0.2s linear;
+
+        &:hover {
+            background-color: rgba(#fff, 0.3);
+        }
+
+        &:focus {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(#000, 0.04);
+        }
+    }
+
+    &--cart {
+        display: flex;
+        justify-content: space-between;
+        border-radius: 30px;
+        color: #fff;
+        font-size: 16px;
+        padding: 15px 23px;
+        background-color: #fe5f1e;
+    }
+}

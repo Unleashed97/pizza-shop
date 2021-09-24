@@ -1,12 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
+import classNames from 'classnames'
 
 import './NavSorting.scss'
 
+import Button from '../Button/Button'
+
 const NavSorting = () => {
+    let [popupState, setPopupState] = useState(false)
+
+    let [sortingSelect, setSortingSelect] = useState('популярности')
+
+    let popupTriangleClasses = classNames('nav-sorting__popup-triangle', {
+        'nav-sorting__popup-triangle--opened': popupState,
+    })
+
+    let popupListClasses = classNames('nav-sorting__popup-list', {
+        'nav-sorting__popup-list--opened': popupState,
+    })
+
+    const buttonSelectSortingHandler = (event) => {
+        setPopupState(!popupState)
+        setSortingSelect(event.target.innerHTML)
+    }
     return (
         <div className="nav-sorting">
             <svg
-                className="nav-sorting__popup-triangle nav-sorting__popup-triangle--visible"
+                className={popupTriangleClasses}
                 width="10"
                 height="6"
                 viewBox="0 0 10 6"
@@ -19,20 +38,55 @@ const NavSorting = () => {
                 />
             </svg>
             <p>Сортировка по: &nbsp;</p>
-            <span className="nav-sorting__popup">
-                <p>популярности</p>
-                <ul className="nav-sorting__popup-list">
+            <div className="nav-sorting__popup">
+                {/* <Button
+                    className="btn--sorting"
+                    sortingSelectClick={buttonSelectSortingHandler}
+                >
+                    популярности
+                </Button> */}
+                <button
+                    className="nav-sorting__btn"
+                    onClick={(e) => buttonSelectSortingHandler(e)}
+                >
+                    {sortingSelect}
+                </button>
+                <ul className={popupListClasses}>
                     <li className="nav-sorting__popup-list-item">
-                        <p>популярности</p>
+                        {/* <Button className="btn--sorting-list-btn">
+                            популярности
+                        </Button> */}
+                        <button
+                            className="nav-sorting__popup-list-btn"
+                            onClick={(e) => buttonSelectSortingHandler(e)}
+                        >
+                            по популярности
+                        </button>
                     </li>
                     <li className="nav-sorting__popup-list-item">
-                        <p>по цене</p>
+                        {/* <Button className="btn--sorting-list-btn">
+                            по цене
+                        </Button> */}
+                        <button
+                            className="nav-sorting__popup-list-btn"
+                            onClick={(e) => buttonSelectSortingHandler(e)}
+                        >
+                            по цене
+                        </button>
                     </li>
                     <li className="nav-sorting__popup-list-item">
-                        <p>по алфавиту</p>
+                        {/* <Button className="btn--sorting-list-btn">
+                            по алфавиту
+                        </Button> */}
+                        <button
+                            className="nav-sorting__popup-list-btn"
+                            onClick={(e) => buttonSelectSortingHandler(e)}
+                        >
+                            по алфавиту
+                        </button>
                     </li>
                 </ul>
-            </span>
+            </div>
         </div>
     )
 }

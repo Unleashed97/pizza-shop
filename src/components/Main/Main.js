@@ -8,7 +8,16 @@ import Section from '../Section/Section'
 const Main = () => {
     return (
         <main className="main">
-            <Nav />
+            <Nav
+                items={[
+                    'Все',
+                    'Мясные',
+                    'Вегетарианская',
+                    'Гриль',
+                    'Острые',
+                    'Закрытые',
+                ]}
+            />
             <Section />
         </main>
     )

@@ -3,31 +3,17 @@ import React from 'react'
 import './Nav.scss'
 
 import NavSorting from '../NavSorting/NavSorting'
+import Button from '../Button/Button'
 
-const Nav = () => {
+const Nav = ({ items }) => {
     return (
         <nav className="nav">
             <ul className="nav__list">
-                <li className="nav__item">
-                    <button className="nav__item-btn nav__item-btn--active">
-                        Все
-                    </button>
-                </li>
-                <li className="nav__item">
-                    <button className="nav__item-btn">Мясные</button>
-                </li>
-                <li className="nav__item">
-                    <button className="nav__item-btn">Вегетарианские</button>
-                </li>
-                <li className="nav__item">
-                    <button className="nav__item-btn">Гриль</button>
-                </li>
-                <li className="nav__item">
-                    <button className="nav__item-btn">Острые</button>
-                </li>
-                <li className="nav__item">
-                    <button className="nav__item-btn">Закрытые</button>
-                </li>
+                {items.map((item, index) => (
+                    <li className="nav__item" key={index}>
+                        <Button className="btn--nav">{item}</Button>
+                    </li>
+                ))}
             </ul>
             <NavSorting />
         </nav>

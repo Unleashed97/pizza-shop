@@ -35,7 +35,7 @@
         width: 100%;
         justify-content: space-between;
         margin-bottom: 2%;
-        .product__params-btn {
+        .btn--params {
             width: 48%;
         }
     }
@@ -44,7 +44,7 @@
         display: flex;
         width: 100%;
         justify-content: space-between;
-        .product__params-btn {
+        .btn--params {
             width: 31%;
         }
     }
@@ -121,18 +121,22 @@
             }
         }
     }
+
     &__counter {
         display: none;
+        justify-content: center;
+        align-items: center;
         font-size: 13px;
         font-weight: 700;
-        padding: 3px 7px;
+        width: 20px;
         border-radius: 50%;
+        aspect-ratio: 1/1;
         background-color: #eb5a1e;
         color: #fff;
         transition: background-color 0.2s linear, color 0.2s linear;
 
         &--show {
-            display: block;
+            display: flex;
         }
     }
 }

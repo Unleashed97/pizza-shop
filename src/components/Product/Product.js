@@ -3,6 +3,8 @@ import classNames from 'classnames'
 
 import './Product.scss'
 
+import Button from '../Button/Button'
+
 const Product = (props) => {
     let [counterOfProduct, setCounterOfProduct] = useState(0)
 
@@ -25,19 +27,13 @@ const Product = (props) => {
             <h3 className="product__title">{props.title}</h3>
             <div className="product__params">
                 <div className="product__params-dough">
-                    <button className="product__params-btn product__params-btn--active">
-                        Тонкое
-                    </button>
-                    <button className="product__params-btn">
-                        Традиционное
-                    </button>
+                    <Button className="btn--params">Тонкое</Button>
+                    <Button className="btn--params">Традиционное</Button>
                 </div>
                 <div className="product__params-size">
-                    <button className="product__params-btn product__params-btn--active">
-                        26 см.
-                    </button>
-                    <button className="product__params-btn">30 см.</button>
-                    <button className="product__params-btn">40 см.</button>
+                    <Button className="btn--params">26 см.</Button>
+                    <Button className="btn--params">30 см.</Button>
+                    <Button className="btn--params">40 см.</Button>
                 </div>
             </div>
             <footer className="product__footer">

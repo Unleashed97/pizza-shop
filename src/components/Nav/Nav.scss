@@ -9,30 +9,4 @@
     &__item {
         margin-right: 9px;
     }
-
-    &__item-btn {
-        font-family: 'Proxima Nova', sans-serif;
-        font-size: 16px;
-        font-weight: 700;
-        color: #2c2c2c;
-
-        padding: 13px 16px;
-        background-color: #f9f9f9;
-        border: 0;
-        border-radius: 30px;
-        transition: background-color 0.2s linear, color 0.2s linear;
-
-        &:last-child {
-            margin-right: 0;
-        }
-
-        &--active {
-            background-color: #282828;
-            color: #fff;
-        }
-
-        &:not(.nav__item-btn--active):hover {
-            background-color: darken(#f9f9f9, 4%);
-        }
-    }
 }
