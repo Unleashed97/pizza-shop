@@ -5,6 +5,7 @@
 
     font-family: 'Proxima Nova', sans-serif;
     font-weight: 700;
+    margin-bottom: 60px;
 
     &__image {
         display: block;
@@ -19,6 +20,15 @@
         margin-top: 11px;
         margin-bottom: 22px;
         text-align: center;
+    }
+
+    &__description {
+        flex: 1 0 auto;
+        font-size: 15px;
+        font-weight: 400;
+        color: rgba(#000, 0.6);
+        line-height: 1.5;
+        margin-bottom: 22px;
     }
 
     &__params {

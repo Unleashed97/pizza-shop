@@ -35,11 +35,12 @@ const Product = (props) => {
     return (
         <div className="product">
             <img
-                src="https://place-hold.it/260"
-                alt=""
+                src={props.image}
+                alt={props.title}
                 className="product__image"
             />
             <h3 className="product__title">{props.title}</h3>
+            <p className="product__description">{props.description}</p>
             <div className="product__params">
                 <div className="product__params-dough">
                     {doughButtonsList.map((item, index) => (
