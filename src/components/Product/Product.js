@@ -8,13 +8,28 @@ import Button from '../Button/Button'
 const Product = (props) => {
     let [counterOfProduct, setCounterOfProduct] = useState(0)
 
-    let [selectDough, setSelectDough] = useState('')
+    let [activeDoughButton, setActiveDoughButton] = useState(0)
+
+    let [activeSizeButton, setActiveSizeButton] = useState(0)
+
+    let doughButtonsList = ['тонкое', 'традиционное']
+
+    let sizeButtonsList = ['26см.', '30см.', '40см.']
 
     let productCounter = classNames('product__counter', {
         'product__counter--show': counterOfProduct,
     })
+
     const productAddHandler = () => {
         setCounterOfProduct(++counterOfProduct)
+    }
+
+    const doughButtonClickHandler = (event, indexOfButton) => {
+        setActiveDoughButton(indexOfButton)
+    }
+
+    const sizeButtonClickHandler = (event, indexOfButton) => {
+        setActiveSizeButton(indexOfButton)
     }
 
     return (
@@ -27,13 +42,36 @@ const Product = (props) => {
             <h3 className="product__title">{props.title}</h3>
             <div className="product__params">
                 <div className="product__params-dough">
-                    <Button className="btn--params">Тонкое</Button>
-                    <Button className="btn--params">Традиционное</Button>
+                    {doughButtonsList.map((item, index) => (
+                        <Button
+                            className={
+                                index === activeDoughButton
+                                    ? 'btn--params active'
+                                    : 'btn--params'
+                            }
+                            onClick={(e) => doughButtonClickHandler(e, index)}
+                            key={item + index}
+                        >
+                            {item}
+                        </Button>
+                    ))}
                 </div>
                 <div className="product__params-size">
-                    <Button className="btn--params">26 см.</Button>
-                    <Button className="btn--params">30 см.</Button>
-                    <Button className="btn--params">40 см.</Button>
+                    {sizeButtonsList.map((item, index) => (
+                        <Button
+                            className={
+                                index === activeSizeButton
+                                    ? 'btn--params active'
+                                    : 'btn--params'
+                            }
+                            onClick={(e) => {
+                                sizeButtonClickHandler(e, index)
+                            }}
+                            key={item + index}
+                        >
+                            {item}
+                        </Button>
+                    ))}
                 </div>
             </div>
             <footer className="product__footer">
