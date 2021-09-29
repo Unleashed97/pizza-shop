@@ -77,8 +77,8 @@ const Product = (props) => {
             </div>
             <footer className="product__footer">
                 <span className="product__price">{props.price}</span>
-                <button
-                    className="product__add-btn"
+                <Button
+                    className="btn--add-to-cart"
                     onClick={productAddHandler}
                 >
                     <svg
@@ -95,7 +95,7 @@ const Product = (props) => {
                     </svg>
                     <p>Добавить</p>
                     <span className={productCounter}>{counterOfProduct}</span>
-                </button>
+                </Button>
             </footer>
         </div>
     )

@@ -12,7 +12,7 @@
     padding: 15px 23px;
     cursor: pointer;
 
-    &__total-price {
+    &__sum {
         margin-right: 13px;
     }
 
@@ -28,5 +28,6 @@
 
     &__image {
         margin-top: -5px;
+        margin-right: 8px;
     }
 }

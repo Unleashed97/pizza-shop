@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import Button from '../Button/Button'
 
 import './Cart.scss'
 
 import cart from './cart.svg'
 
 const Cart = () => {
+    const [sum, setSum] = useState(0)
+
+    const [amountOfProducts, setAmountOfProducts] = useState(0)
+
     return (
-        <button className="cart">
-            <span className="cart__total-price">514 ₽</span>
+        <Button className="btn--cart">
+            <span className="cart__sum">{sum} ₽</span>
             <span className="cart__separator"></span>
             <span className="cart__counter">
-                <img className="cart__image" src={cart} alt="shopping cart" /> 3
+                <img className="cart__image" src={cart} alt="shopping cart" />
+                {amountOfProducts}
             </span>
-        </button>
+        </Button>
     )
 }
 
