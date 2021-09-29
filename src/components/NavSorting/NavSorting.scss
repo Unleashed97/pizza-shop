@@ -39,48 +39,4 @@
             display: block;
         }
     }
-
-    &__popup-list-btn {
-        font-family: 'Proxima Nova', sans-serif;
-        font-weight: 700;
-        border: 0;
-        background: none;
-        cursor: poiner;
-        padding: 0;
-
-        width: 100%;
-        text-align: left;
-        padding: 10px 18px;
-        font-size: 14px;
-        font-weight: 400;
-        color: #000;
-        transition: background-color 0.2s linear, text-shadow 0.2s linear,
-            color 0.2s linear;
-
-        &:hover {
-            background-color: rgba(#fe5f1e, 0.05);
-            color: #eb5a1e;
-            text-shadow: 0 0 0.9px #eb5a1e, 0 0 0.9px #eb5a1e;
-        }
-    }
-
-    &__btn {
-        font-family: 'Proxima Nova', sans-serif;
-        font-weight: 700;
-        border: 0;
-        background: none;
-        cursor: poiner;
-        padding: 0;
-
-        font-size: 14px;
-        font-weight: 400;
-        color: #eb5a1e;
-        text-decoration: underline dashed;
-        transition: text-shadow 0.2s linear;
-
-        &:hover,
-        &:focus {
-            text-shadow: 0 0 0.9px #eb5a1e, 0 0 0.9px #eb5a1e;
-        }
-    }
 }

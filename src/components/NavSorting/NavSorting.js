@@ -39,51 +39,36 @@ const NavSorting = () => {
             </svg>
             <p>Сортировка по: &nbsp;</p>
             <div className="nav-sorting__popup">
-                {/* <Button
+                <Button
                     className="btn--sorting"
-                    sortingSelectClick={buttonSelectSortingHandler}
-                >
-                    популярности
-                </Button> */}
-                <button
-                    className="nav-sorting__btn"
                     onClick={(e) => buttonSelectSortingHandler(e)}
                 >
                     {sortingSelect}
-                </button>
+                </Button>
                 <ul className={popupListClasses}>
                     <li className="nav-sorting__popup-list-item">
-                        {/* <Button className="btn--sorting-list-btn">
+                        <Button
+                            className="btn--sorting-list-btn"
+                            onClick={(e) => buttonSelectSortingHandler(e)}
+                        >
                             популярности
-                        </Button> */}
-                        <button
-                            className="nav-sorting__popup-list-btn"
-                            onClick={(e) => buttonSelectSortingHandler(e)}
-                        >
-                            по популярности
-                        </button>
+                        </Button>
                     </li>
                     <li className="nav-sorting__popup-list-item">
-                        {/* <Button className="btn--sorting-list-btn">
-                            по цене
-                        </Button> */}
-                        <button
-                            className="nav-sorting__popup-list-btn"
+                        <Button
+                            className="btn--sorting-list-btn"
                             onClick={(e) => buttonSelectSortingHandler(e)}
                         >
-                            по цене
-                        </button>
+                            цене
+                        </Button>
                     </li>
                     <li className="nav-sorting__popup-list-item">
-                        {/* <Button className="btn--sorting-list-btn">
-                            по алфавиту
-                        </Button> */}
-                        <button
-                            className="nav-sorting__popup-list-btn"
+                        <Button
+                            className="btn--sorting-list-btn"
                             onClick={(e) => buttonSelectSortingHandler(e)}
                         >
-                            по алфавиту
-                        </button>
+                            алфавиту
+                        </Button>
                     </li>
                 </ul>
             </div>
