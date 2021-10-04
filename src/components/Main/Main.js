@@ -2,23 +2,15 @@ import React from 'react'
 
 import './Main.scss'
 
-import Nav from '../Nav/Nav'
-import Section from '../Section/Section'
+import Home from '../../pages/Home'
+import Cart from '../../pages/Cart'
+import { Route } from 'react-router'
 
 const Main = () => {
     return (
         <main className="main">
-            <Nav
-                items={[
-                    'Все',
-                    'Мясные',
-                    'Вегетарианская',
-                    'Гриль',
-                    'Острые',
-                    'Закрытые',
-                ]}
-            />
-            <Section />
+            <Route path="/" component={Home} exact />
+            <Route path="/cart" component={Cart} exact />
         </main>
     )
 }
