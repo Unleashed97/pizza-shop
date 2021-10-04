@@ -70,6 +70,12 @@
             color: #eb5a1e;
             text-shadow: 0 0 0.9px #eb5a1e, 0 0 0.9px #eb5a1e;
         }
+
+        &.active {
+            background-color: rgba(#fe5f1e, 0.05);
+            color: #eb5a1e;
+            text-shadow: 0 0 0.9px #eb5a1e, 0 0 0.9px #eb5a1e;
+        }
     }
 
     &--params {

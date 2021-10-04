@@ -1,14 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import classNames from 'classnames'
 
 import './NavSorting.scss'
 
 import Button from '../Button/Button'
 
-const NavSorting = () => {
+const NavSorting = ({ items }) => {
     let [popupState, setPopupState] = useState(false)
 
-    let [sortingSelect, setSortingSelect] = useState('популярности')
+    let [sortingSelectIndex, setSortingSelectIndex] = useState(0)
+
+    let activeLabel = items[sortingSelectIndex]
+
+    const navSortingRef = useRef()
+
+    const handleOutsideClick = (e) => {
+        let path = e.path || (e.composedPath && e.composedPath())
+        if (!path.includes(navSortingRef.current)) {
+            setPopupState(false)
+        }
+    }
+
+    useEffect(() => {
+        document.body.addEventListener('click', handleOutsideClick)
+    }, [])
 
     let popupTriangleClasses = classNames('nav-sorting__popup-triangle', {
         'nav-sorting__popup-triangle--opened': popupState,
@@ -18,12 +33,15 @@ const NavSorting = () => {
         'nav-sorting__popup-list--opened': popupState,
     })
 
-    const buttonSelectSortingHandler = (event) => {
+    const togglePopup = () => {
         setPopupState(!popupState)
-        setSortingSelect(event.target.innerHTML)
+    }
+    const sortingButtonHandler = (index) => {
+        setPopupState(!popupState)
+        setSortingSelectIndex(index)
     }
     return (
-        <div className="nav-sorting">
+        <div ref={navSortingRef} className="nav-sorting">
             <svg
                 className={popupTriangleClasses}
                 width="10"
@@ -39,37 +57,28 @@ const NavSorting = () => {
             </svg>
             <p>Сортировка по: &nbsp;</p>
             <div className="nav-sorting__popup">
-                <Button
-                    className="btn--sorting"
-                    onClick={(e) => buttonSelectSortingHandler(e)}
-                >
-                    {sortingSelect}
+                <Button className="btn--sorting" onClick={togglePopup}>
+                    {activeLabel}
                 </Button>
                 <ul className={popupListClasses}>
-                    <li className="nav-sorting__popup-list-item">
-                        <Button
-                            className="btn--sorting-list-btn"
-                            onClick={(e) => buttonSelectSortingHandler(e)}
-                        >
-                            популярности
-                        </Button>
-                    </li>
-                    <li className="nav-sorting__popup-list-item">
-                        <Button
-                            className="btn--sorting-list-btn"
-                            onClick={(e) => buttonSelectSortingHandler(e)}
-                        >
-                            цене
-                        </Button>
-                    </li>
-                    <li className="nav-sorting__popup-list-item">
-                        <Button
-                            className="btn--sorting-list-btn"
-                            onClick={(e) => buttonSelectSortingHandler(e)}
-                        >
-                            алфавиту
-                        </Button>
-                    </li>
+                    {items &&
+                        items.map((item, index) => (
+                            <li
+                                className="nav-sorting__popup-list-item"
+                                key={items + index}
+                            >
+                                <Button
+                                    className={
+                                        sortingSelectIndex === index
+                                            ? 'btn--sorting-list-btn active'
+                                            : 'btn--sorting-list-btn'
+                                    }
+                                    onClick={() => sortingButtonHandler(index)}
+                                >
+                                    {item}
+                                </Button>
+                            </li>
+                        ))}
                 </ul>
             </div>
         </div>

@@ -31,7 +31,7 @@ const Nav = ({ items }) => {
                         </li>
                     ))}
             </ul>
-            <NavSorting />
+            <NavSorting items={['популярности', 'цене', 'алфавиту']} />
         </nav>
     )
 }
