@@ -4,7 +4,7 @@ import { Route, Link } from 'react-router-dom'
 import './Header.scss'
 
 import Logo from '../Logo/Logo'
-import Cart from '../Cart/Cart'
+import CartButton from '../CartButton/CartButton'
 
 const Header = () => {
     return (
@@ -15,7 +15,7 @@ const Header = () => {
 
             <Route path="/" exact>
                 <Link to="/cart">
-                    <Cart />
+                    <CartButton />
                 </Link>
             </Route>
         </header>

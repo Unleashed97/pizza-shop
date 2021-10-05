@@ -141,4 +141,125 @@
             }
         }
     }
+
+    &--back {
+        font-size: 16px;
+        padding: 15px 40px;
+        background-color: #282828;
+        color: #fff;
+        border-radius: 30px;
+        transition: box-shadow 0.2s linear;
+
+        &:hover {
+            box-shadow: 0 5px 30px rgba(#000, 0.3);
+        }
+    }
+
+    &--big-outline {
+        font-size: 16px;
+        padding: 15px 40px;
+        background-color: transparent;
+        color: #d3d3d3;
+        border-radius: 30px;
+        border: 1px solid #d3d3d3;
+        transition: all 0.2s linear;
+
+        &:hover {
+            color: #fe5f1e;
+            border-color: #fe5f1e;
+            .btn__icon {
+                stroke: #fe5f1e;
+            }
+        }
+
+        .btn__icon {
+            transition: stroke 0.2s linear;
+        }
+
+        svg {
+            margin-right: 8px;
+        }
+    }
+
+    &--orange {
+        font-size: 16px;
+        padding: 15px 40px;
+        background-color: #eb5a1e;
+        color: #fff;
+        border-radius: 30px;
+        transition: box-shadow 0.2s linear;
+
+        &:hover {
+            box-shadow: 0 5px 30px rgba(#eb5a1e, 0.3);
+        }
+    }
+
+    &--empty-trash {
+        display: flex;
+        font-size: 16px;
+        color: #b6b6b6;
+        transition: color 0.2s linear;
+
+        &:hover {
+            color: red;
+
+            .empty-trash-icon {
+                stroke: red;
+            }
+        }
+        & .empty-trash-icon {
+            stroke: '#B6B6B6';
+            transition: stroke 0.2s linear;
+        }
+
+        & .empty-trash-text {
+            margin-left: 7px;
+        }
+    }
+
+    &--operator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid #eb5a1e;
+        color: #eb5a1e;
+        transition: all 0.2s linear;
+
+        &:hover {
+            background-color: #eb5a1e;
+            color: #fff;
+
+            .btn--operator-icon {
+                stroke: #fff;
+            }
+        }
+
+        .btn--operator-icon {
+            stroke: #eb5a1e;
+            transition: stroke 0.2s linear;
+        }
+
+        &.delete {
+            svg {
+                transform: rotate(45deg);
+            }
+            border-color: #d7d7d7;
+
+            &:hover {
+                background-color: transparent;
+                border-color: red;
+
+                .btn--operator-icon {
+                    stroke: red;
+                }
+            }
+
+            .btn--operator-icon {
+                stroke: #d7d7d7;
+            }
+        }
+    }
 }

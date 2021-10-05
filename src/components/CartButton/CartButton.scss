@@ -1,0 +1,33 @@
+.cart-button {
+    display: flex;
+    align-items: center;
+    font-family: 'Proxima Nova', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+
+    border: 0;
+    border-radius: 30px;
+    background-color: #fe5f1e;
+    padding: 15px 23px;
+    cursor: pointer;
+
+    &__sum {
+        margin-right: 13px;
+    }
+
+    &__separator {
+        height: 100%;
+        width: 1px;
+        background-color: rgba(#ffffff, 0.25);
+    }
+
+    &__counter {
+        margin-left: 13px;
+    }
+
+    &__image {
+        margin-top: -5px;
+        margin-right: 8px;
+    }
+}

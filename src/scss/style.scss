@@ -30,6 +30,13 @@ body {
     padding: 0 50px;
 }
 
+.mark {
+    background: 0;
+    &--color-orange {
+        color: #fe5f1e;
+    }
+}
+
 a {
     text-decoration: none;
 }
