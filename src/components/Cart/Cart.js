@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
 import CartItem from '../CartItem/CartItem'
 
-import CartContent from './cart-content.svg'
 import CartIcon from './cart-icon.svg'
 import trashIcon from './trash-icon.svg'
 
@@ -27,7 +26,7 @@ const Cart = (cartItems) => {
                 //     <img className="cart__image" src={CartContent} alt="" />
 
                 //     <Link to="/">
-                //         <Button className="btn--back">Вернуться назад</Button>
+                //         <Button className="btn--back-filled">Вернуться назад</Button>
                 //     </Link>
                 // </div>
                 <div className="cart">
@@ -75,24 +74,25 @@ const Cart = (cartItems) => {
                             </p>
                         </div>
                         <div className="cart__footer-btns">
-                            <Button className="btn--big-outline">
-                                <svg
-                                    xlmns="https://www.w3.org/2000/svg"
-                                    width="10"
-                                    height="12"
-                                    fill="none"
-                                >
-                                    <path
-                                        stroke="#D3D3D3"
-                                        stroke-width="2"
-                                        className="btn__icon"
-                                        d="M6,0 L1,6 L 6,12"
-                                    />
-                                </svg>
-                                Вернуться назад
-                            </Button>
-
-                            <Button className="btn--big btn--filled btn--orange">
+                            <Link to="/">
+                                <Button className="btn--back-outline">
+                                    <svg
+                                        xlmns="https://www.w3.org/2000/svg"
+                                        width="10"
+                                        height="12"
+                                        fill="none"
+                                    >
+                                        <path
+                                            stroke="#D3D3D3"
+                                            stroke-width="2"
+                                            className="btn__icon"
+                                            d="M6,0 L1,6 L 6,12"
+                                        />
+                                    </svg>
+                                    Вернуться назад
+                                </Button>
+                            </Link>
+                            <Button className="btn--pay">
                                 Оплатить сейчас
                             </Button>
                         </div>
@@ -101,7 +101,7 @@ const Cart = (cartItems) => {
             ) : (
                 <div className="cart">
                     <img src={trashIcon} alt="" className="cart__icon" />
-                    <h1 className="cart__empty-trash">Очистить корзину</h1>
+                    <p className="cart__empty-trash">Очистить корзину</p>
                 </div>
             )}
         </>
