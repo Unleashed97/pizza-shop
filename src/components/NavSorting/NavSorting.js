@@ -10,7 +10,7 @@ const NavSorting = ({ items }) => {
 
     let [sortingSelectIndex, setSortingSelectIndex] = useState(0)
 
-    let activeLabel = items[sortingSelectIndex]
+    let activeLabel = items[sortingSelectIndex].name
 
     const navSortingRef = useRef()
 
@@ -62,10 +62,10 @@ const NavSorting = ({ items }) => {
                 </Button>
                 <ul className={popupListClasses}>
                     {items &&
-                        items.map((item, index) => (
+                        items.map((obj, index) => (
                             <li
                                 className="nav-sorting__popup-list-item"
-                                key={items + index}
+                                key={obj.name + index}
                             >
                                 <Button
                                     className={
@@ -75,7 +75,7 @@ const NavSorting = ({ items }) => {
                                     }
                                     onClick={() => sortingButtonHandler(index)}
                                 >
-                                    {item}
+                                    {obj.name}
                                 </Button>
                             </li>
                         ))}

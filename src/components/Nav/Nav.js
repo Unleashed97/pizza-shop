@@ -5,11 +5,12 @@ import './Nav.scss'
 import NavSorting from '../NavSorting/NavSorting'
 import Button from '../Button/Button'
 
-const Nav = ({ items }) => {
+const Nav = ({ items, onClickItem }) => {
     const [selectedCategory, setSelectedCategory] = useState(0)
 
     const navButtonClickHandler = (index) => {
         setSelectedCategory(index)
+        onClickItem(index)
     }
 
     return (
@@ -31,7 +32,13 @@ const Nav = ({ items }) => {
                         </li>
                     ))}
             </ul>
-            <NavSorting items={['популярности', 'цене', 'алфавиту']} />
+            <NavSorting
+                items={[
+                    { name: 'популярности', type: 'popularity' },
+                    { name: 'цене', type: 'price' },
+                    { name: 'алфавиту', type: 'alphabet' },
+                ]}
+            />
         </nav>
     )
 }
