@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import axios from 'axios'
 
 import Nav from '../components/Nav/Nav'
 
@@ -23,13 +22,11 @@ const navItemsNames = [
 const Home = () => {
     const dispatch = useDispatch()
 
-    const items = useSelector(({ pizzas }) => pizzas.items)
-
     useEffect(() => {
-        axios.get('http://localhost:3001/pizzas').then(({ data }) => {
-            dispatch(setPizzas(data))
-        })
+        dispatch(fetchPizzas())
     }, [])
+
+    const items = useSelector(({ pizzas }) => pizzas.items)
 
     const onSelectNavItem = (index) => {
         dispatch(setCategory(index))
