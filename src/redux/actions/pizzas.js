@@ -7,6 +7,6 @@ export const fetchPizzas = () => {
 }
 
 export const setPizzas = (items) => ({
-    type: 'SET_PRODUCT',
+    type: 'SET_PIZZAS',
     payload: items,
 })

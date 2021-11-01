@@ -4,8 +4,6 @@ import axios from 'axios'
 
 import Nav from '../components/Nav/Nav'
 
-import { pizzas } from '../database/db'
-
 import { fetchPizzas, setPizzas } from '../redux/actions/pizzas'
 import { setCategory } from '../redux/actions/filters'
 
@@ -25,7 +23,7 @@ const navItemsNames = [
 const Home = () => {
     const dispatch = useDispatch()
 
-    const items = useSelector(({ products }) => products.items)
+    const items = useSelector(({ pizzas }) => pizzas.items)
 
     useEffect(() => {
         axios.get('http://localhost:3001/pizzas').then(({ data }) => {
