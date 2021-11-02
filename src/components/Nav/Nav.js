@@ -1,18 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import './Nav.scss'
 
 import NavSorting from '../NavSorting/NavSorting'
 import Button from '../Button/Button'
 
-const Nav = ({ items, onClickItem }) => {
-    const [selectedCategory, setSelectedCategory] = useState(0)
-
-    const navButtonClickHandler = (index) => {
-        setSelectedCategory(index)
-        onClickItem(index)
-    }
-
+const Nav = ({ activeNavItem, items, onClickItem }) => {
     return (
         <nav className="nav">
             <ul className="nav__list">
@@ -21,11 +14,11 @@ const Nav = ({ items, onClickItem }) => {
                         <li className="nav__item" key={item + index}>
                             <Button
                                 className={
-                                    selectedCategory === index
+                                    activeNavItem === index
                                         ? 'btn--nav active'
                                         : 'btn--nav'
                                 }
-                                onClick={() => navButtonClickHandler(index)}
+                                onClick={() => onClickItem(index)}
                             >
                                 {item}
                             </Button>

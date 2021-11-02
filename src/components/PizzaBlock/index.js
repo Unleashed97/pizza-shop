@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import classNames from 'classnames'
 
-import './Product.scss'
+import './pizzaBlock.scss'
 
 import Button from '../Button/Button'
 
-const Product = (props) => {
-    let [counterOfProduct, setCounterOfProduct] = useState(0)
+const PizzaBlock = (props) => {
+    let [counterOfPizzas, setCounterOfPizzas] = useState(0)
 
     let [activeDoughButton, setActiveDoughButton] = useState(0)
 
@@ -16,12 +16,12 @@ const Product = (props) => {
 
     let sizeButtonsList = ['26см.', '30см.', '40см.']
 
-    let productCounter = classNames('product__counter', {
-        'product__counter--show': counterOfProduct,
+    let pizzaCounterClasses = classNames('pizza-block__counter', {
+        'pizza-block__counter--show': counterOfPizzas,
     })
 
-    const productAddHandler = () => {
-        setCounterOfProduct(++counterOfProduct)
+    const pizzaAddHandler = () => {
+        setCounterOfPizzas(++counterOfPizzas)
     }
 
     const doughButtonClickHandler = (event, indexOfButton) => {
@@ -33,16 +33,16 @@ const Product = (props) => {
     }
 
     return (
-        <div className="product">
+        <div className="pizza-block">
             <img
                 src={props.image}
                 alt={props.title}
-                className="product__image"
+                className="pizza-block__image"
             />
-            <h3 className="product__title">{props.title}</h3>
-            <p className="product__description">{props.description}</p>
-            <div className="product__params">
-                <div className="product__params-dough">
+            <h3 className="pizza-block__title">{props.title}</h3>
+            <p className="pizza-block__description">{props.description}</p>
+            <div className="pizza-block__params">
+                <div className="pizza-block__params-dough">
                     {doughButtonsList.map((item, index) => (
                         <Button
                             className={
@@ -57,7 +57,7 @@ const Product = (props) => {
                         </Button>
                     ))}
                 </div>
-                <div className="product__params-size">
+                <div className="pizza-block__params-size">
                     {sizeButtonsList.map((item, index) => (
                         <Button
                             className={
@@ -75,12 +75,9 @@ const Product = (props) => {
                     ))}
                 </div>
             </div>
-            <footer className="product__footer">
-                <span className="product__price">{props.price}</span>
-                <Button
-                    className="btn--add-to-cart"
-                    onClick={productAddHandler}
-                >
+            <footer className="pizza-block__footer">
+                <span className="pizza-block__price">{props.price}</span>
+                <Button className="btn--add-to-cart" onClick={pizzaAddHandler}>
                     <svg
                         width="12"
                         height="12"
@@ -94,11 +91,13 @@ const Product = (props) => {
                         />
                     </svg>
                     <p>Добавить</p>
-                    <span className={productCounter}>{counterOfProduct}</span>
+                    <span className={pizzaCounterClasses}>
+                        {counterOfPizzas}
+                    </span>
                 </Button>
             </footer>
         </div>
     )
 }
 
-export default Product
+export default PizzaBlock
