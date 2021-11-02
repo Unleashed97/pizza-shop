@@ -5,13 +5,10 @@ import './NavSorting.scss'
 
 import Button from '../Button/Button'
 
-const NavSorting = ({ items }) => {
+const NavSorting = ({ activeSortingItem, items, onClickSortItem }) => {
     let [popupState, setPopupState] = useState(false)
 
-    let [sortingSelectIndex, setSortingSelectIndex] = useState(0)
-
-    let activeLabel = items[sortingSelectIndex].name
-
+    let activeLabel = items.find((obj) => obj.type === activeSortingItem).name
     const navSortingRef = useRef()
 
     const handleOutsideClick = (e) => {
@@ -36,9 +33,12 @@ const NavSorting = ({ items }) => {
     const togglePopup = () => {
         setPopupState(!popupState)
     }
-    const sortingButtonHandler = (index) => {
+    const sortingButtonClickHandler = (index) => {
         setPopupState(!popupState)
-        setSortingSelectIndex(index)
+
+        if (onClickSortItem) {
+            onClickSortItem(index)
+        }
     }
     return (
         <div ref={navSortingRef} className="nav-sorting">
@@ -69,11 +69,13 @@ const NavSorting = ({ items }) => {
                             >
                                 <Button
                                     className={
-                                        sortingSelectIndex === index
+                                        activeSortingItem === obj.type
                                             ? 'btn--sorting-list-btn active'
                                             : 'btn--sorting-list-btn'
                                     }
-                                    onClick={() => sortingButtonHandler(index)}
+                                    onClick={() =>
+                                        sortingButtonClickHandler(obj)
+                                    }
                                 >
                                     {obj.name}
                                 </Button>

@@ -2,7 +2,6 @@ import React from 'react'
 
 import './Nav.scss'
 
-import NavSorting from '../NavSorting/NavSorting'
 import Button from '../Button/Button'
 
 const Nav = ({ activeNavItem, items, onClickItem }) => {
@@ -25,13 +24,6 @@ const Nav = ({ activeNavItem, items, onClickItem }) => {
                         </li>
                     ))}
             </ul>
-            <NavSorting
-                items={[
-                    { name: 'популярности', type: 'popularity' },
-                    { name: 'цене', type: 'price' },
-                    { name: 'алфавиту', type: 'alphabet' },
-                ]}
-            />
         </nav>
     )
 }

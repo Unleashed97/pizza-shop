@@ -8,10 +8,10 @@ import { Route } from 'react-router'
 
 const Main = () => {
     return (
-        <main className="main">
+        <div className="content">
             <Route path="/" component={Home} exact />
             <Route path="/cart" component={Cart} exact />
-        </main>
+        </div>
     )
 }
 
