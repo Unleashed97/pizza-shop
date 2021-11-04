@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 import Button from '../Button/Button'
 
@@ -7,13 +8,11 @@ import './CartButton.scss'
 import cart from './cart.svg'
 
 const Cart = () => {
-    const [sum, setSum] = useState(0)
-
-    const [amountOfProducts, setAmountOfProducts] = useState(0)
+    const { totalPrice, totalCount } = useSelector(({ cart }) => cart)
 
     return (
         <Button className="btn--cart">
-            <span className="cart-button__sum">{sum} ₽</span>
+            <span className="cart-button__sum">{totalPrice} ₽</span>
             <span className="cart-button__separator"></span>
             <span className="cart-button__counter">
                 <img
@@ -21,7 +20,7 @@ const Cart = () => {
                     src={cart}
                     alt="shopping cart"
                 />
-                {amountOfProducts}
+                {totalCount}
             </span>
         </Button>
     )

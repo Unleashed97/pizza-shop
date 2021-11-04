@@ -27,7 +27,7 @@ const CartItem = () => {
                     >
                         <path
                             className="btn--operator-icon"
-                            stroke-width="2"
+                            strokeWidth="2"
                             d="M 10,16 L 20,16"
                         />
                     </svg>
@@ -41,7 +41,7 @@ const CartItem = () => {
                     >
                         <path
                             className="btn--operator-icon"
-                            stroke-width="2"
+                            strokeWidth="2"
                             d="M 10,16 L 20,16 M15,11 L 15,21"
                         />
                     </svg>
@@ -52,7 +52,7 @@ const CartItem = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
                     <path
                         className="btn--operator-icon"
-                        stroke-width="2"
+                        strokeWidth="2"
                         d="M 10,16 L 20,16 M15,11 L 15,21"
                     />
                 </svg>

@@ -5,79 +5,82 @@ import './pizzaBlock.scss'
 
 import Button from '../Button/Button'
 
-const PizzaBlock = (props) => {
-    let [counterOfPizzas, setCounterOfPizzas] = useState(0)
+const PizzaBlock = ({
+    id,
+    title,
+    image,
+    description,
+    price,
+    types,
+    sizes,
+    onClickAddPizza,
+    addedCount,
+}) => {
+    let availableTypes = ['тонкое', 'традиционное']
 
-    let [activeDoughButton, setActiveDoughButton] = useState(0)
+    let availableSizes = [26, 30, 40]
 
-    let [activeSizeButton, setActiveSizeButton] = useState(0)
+    const [activeType, setActiveType] = useState(types[0])
+    const [activeSize, setActiveSize] = useState(sizes[0])
 
-    let doughButtonsList = ['тонкое', 'традиционное']
-
-    let sizeButtonsList = ['26см.', '30см.', '40см.']
-
-    let pizzaCounterClasses = classNames('pizza-block__counter', {
-        'pizza-block__counter--show': counterOfPizzas,
-    })
-
-    const pizzaAddHandler = () => {
-        setCounterOfPizzas(++counterOfPizzas)
+    const onSelectType = (index) => {
+        setActiveType(index)
     }
 
-    const doughButtonClickHandler = (event, indexOfButton) => {
-        setActiveDoughButton(indexOfButton)
+    const onSelectSize = (size) => {
+        setActiveSize(size)
     }
 
-    const sizeButtonClickHandler = (event, indexOfButton) => {
-        setActiveSizeButton(indexOfButton)
+    const onAddPizzaHandle = () => {
+        const obj = {
+            id,
+            title,
+            image,
+            price,
+            type: availableTypes[activeType],
+            size: activeSize,
+        }
+        onClickAddPizza(obj)
     }
 
     return (
         <div className="pizza-block">
-            <img
-                src={props.image}
-                alt={props.title}
-                className="pizza-block__image"
-            />
-            <h3 className="pizza-block__title">{props.title}</h3>
-            <p className="pizza-block__description">{props.description}</p>
+            <img src={image} alt={title} className="pizza-block__image" />
+            <h3 className="pizza-block__title">{title}</h3>
+            <p className="pizza-block__description">{description}</p>
             <div className="pizza-block__params">
                 <div className="pizza-block__params-dough">
-                    {doughButtonsList.map((item, index) => (
+                    {availableTypes.map((type, index) => (
                         <Button
-                            className={
-                                index === activeDoughButton
-                                    ? 'btn--params active'
-                                    : 'btn--params'
-                            }
-                            onClick={(e) => doughButtonClickHandler(e, index)}
-                            key={item + index}
+                            className={classNames('btn--params', {
+                                active: activeType === index,
+                                disabled: !types.includes(index),
+                            })}
+                            onClick={() => onSelectType(index)}
+                            key={type + index}
                         >
-                            {item}
+                            {type}
                         </Button>
                     ))}
                 </div>
                 <div className="pizza-block__params-size">
-                    {sizeButtonsList.map((item, index) => (
+                    {availableSizes.map((size, index) => (
                         <Button
-                            className={
-                                index === activeSizeButton
-                                    ? 'btn--params active'
-                                    : 'btn--params'
-                            }
-                            onClick={(e) => {
-                                sizeButtonClickHandler(e, index)
-                            }}
-                            key={item + index}
+                            className={classNames('btn--params', {
+                                active: activeSize === size,
+                                disabled: !sizes.includes(size),
+                            })}
+                            onClick={() => onSelectSize(size)}
+                            key={size + index}
                         >
-                            {item}
+                            {size} см.
                         </Button>
                     ))}
                 </div>
             </div>
             <footer className="pizza-block__footer">
-                <span className="pizza-block__price">{props.price}</span>
-                <Button className="btn--add-to-cart" onClick={pizzaAddHandler}>
+                <span className="pizza-block__price">от {price} ₽</span>
+                <Button className="btn--add-to-cart" onClick={onAddPizzaHandle}>
                     <svg
                         width="12"
                         height="12"
@@ -91,8 +94,12 @@ const PizzaBlock = (props) => {
                         />
                     </svg>
                     <p>Добавить</p>
-                    <span className={pizzaCounterClasses}>
-                        {counterOfPizzas}
+                    <span
+                        className={classNames('pizza-block__counter', {
+                            show: addedCount,
+                        })}
+                    >
+                        {addedCount}
                     </span>
                 </Button>
             </footer>

@@ -93,6 +93,12 @@
             background-color: #fff;
             box-shadow: 0 2px 4px rgba(#000, 0.04);
         }
+
+        &.disabled {
+            background-color: #f3f3f3;
+            color: rgba(#2c2d2c, 0.2);
+            pointer-events: none;
+        }
     }
 
     &--cart {
@@ -135,9 +141,27 @@
                 fill: #fff;
             }
 
-            .product__counter {
+            .pizza-block__counter {
                 background-color: #fff;
                 color: #eb5a1e;
+            }
+        }
+
+        .pizza-block__counter {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            width: 20px;
+            border-radius: 50%;
+            aspect-ratio: 1/1;
+            background-color: #eb5a1e;
+            color: #fff;
+            transition: background-color 0.2s linear, color 0.2s linear;
+
+            &.show {
+                display: flex;
             }
         }
     }

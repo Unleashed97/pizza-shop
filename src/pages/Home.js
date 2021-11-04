@@ -6,6 +6,7 @@ import NavSorting from '../components/NavSorting/NavSorting'
 
 import { fetchPizzas } from '../redux/actions/pizzas'
 import { setCategory, setSortBy } from '../redux/actions/filters'
+import { addPizzaToCart } from '../redux/actions/cart'
 
 import PizzaBlock from '../components/PizzaBlock'
 import PizzaLoadingBlock from '../components/PizzaBlock/LoadingBlock'
@@ -31,6 +32,7 @@ const Home = () => {
     const dispatch = useDispatch()
 
     const items = useSelector(({ pizzas }) => pizzas.items)
+    const cartItems = useSelector(({ cart }) => cart.items)
     const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded)
     const { category, sortBy } = useSelector(({ filters }) => filters)
 
@@ -44,6 +46,10 @@ const Home = () => {
 
     const onSelectSortingItem = (type) => {
         dispatch(setSortBy(type))
+    }
+
+    const handleAddPizzaToCart = (obj) => {
+        dispatch(addPizzaToCart(obj))
     }
 
     return (
@@ -66,13 +72,15 @@ const Home = () => {
                     <h2 className="section__title">Все пиццы</h2>
                     <div className="section__list">
                         {isLoaded
-                            ? items.map((item, index) => (
+                            ? items.map((obj) => (
                                   <PizzaBlock
-                                      image={item.image}
-                                      title={item.title}
-                                      price={item.price}
-                                      description={item.description}
-                                      key={item + index}
+                                      onClickAddPizza={handleAddPizzaToCart}
+                                      key={obj.id}
+                                      {...obj}
+                                      addedCount={
+                                          cartItems[obj.id] &&
+                                          cartItems[obj.id].length
+                                      }
                                   />
                               ))
                             : Array(8)
