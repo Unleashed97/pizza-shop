@@ -70,6 +70,13 @@ const Home = () => {
             <div className="content__main">
                 <section className="section">
                     <h2 className="section__title">Все пиццы</h2>
+                    {items.length ? (
+                        ''
+                    ) : (
+                        <p className="pizzas-unavailable">
+                            Извините, сейчас пиццы недоступны для заказа
+                        </p>
+                    )}
                     <div className="section__list">
                         {isLoaded
                             ? items.map((obj) => (
@@ -79,7 +86,7 @@ const Home = () => {
                                       {...obj}
                                       addedCount={
                                           cartItems[obj.id] &&
-                                          cartItems[obj.id].length
+                                          cartItems[obj.id].items.length
                                       }
                                   />
                               ))

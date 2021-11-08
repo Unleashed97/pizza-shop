@@ -1,14 +1,23 @@
-// export const setCartCount = (value) => ({
-//     type: 'SET_CART_COUNT',
-//     payload: value,
-// })
-
-// export const setCartTotal = (value) => ({
-//     type: 'SET_CART_TOTAL',
-//     payload: value,
-// })
-
 export const addPizzaToCart = (pizzaObj) => ({
     type: 'ADD_PIZZA_CART',
     payload: pizzaObj,
+})
+
+export const plusCartItem = (id) => ({
+    type: 'PLUS_CART_ITEM',
+    payload: id,
+})
+
+export const minusCartItem = (id) => ({
+    type: 'MINUS_CART_ITEM',
+    payload: id,
+})
+
+export const clearCart = () => ({
+    type: 'CLEAR_CART',
+})
+
+export const removeCartItem = (id) => ({
+    type: 'REMOVE_CART_ITEM',
+    payload: id,
 })

@@ -267,6 +267,8 @@
         }
 
         &.delete {
+            display: flex;
+            justify-self: flex-end;
             svg {
                 transform: rotate(45deg);
             }
