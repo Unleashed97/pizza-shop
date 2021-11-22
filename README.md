@@ -11,3 +11,9 @@ React js application for pizza sell shop.
 -   React Router
 -   SCSS
 -   Json Server
+
+
+---
+
+Study project from Archakov Dennis
+
