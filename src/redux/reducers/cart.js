@@ -1,42 +1,53 @@
 const initialState = {
-    items: {},
+    items: [],
     totalPrice: 0,
     totalCount: 0,
 }
 
-const getTotalPrice = (arr) => arr.reduce((sum, obj) => obj.price + sum, 0)
+const getGroupPrice = (arr) => arr.reduce((sum, obj) => sum + obj.price, 0)
 
-const _get = (obj, path) => {
-    const [firstKey, ...keys] = path.split('.')
-    return keys.reduce((val, key) => {
-        return val[key]
-    }, obj[firstKey])
+const getTotalPrice = (obj) => {
+    return Object.values(obj).reduce((sum, obj) => sum + obj.groupPrice, 0)
 }
 
-const getTotalSum = (obj, path) => {
-    return Object.values(obj).reduce((sum, obj) => {
-        const value = _get(obj, path)
-        return sum + value
-    }, 0)
+const getTotalCount = (obj) => {
+    return Object.values(obj).reduce((sum, obj) => sum + obj.groupCount, 0)
 }
 
 const cart = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_PIZZA_CART': {
-            const currentPizzaItems = !state.items[action.payload.id]
+            const currentPizzaItems = !state.items[
+                action.payload.id +
+                    '_' +
+                    action.payload.type +
+                    action.payload.size
+            ]
                 ? [action.payload]
-                : [...state.items[action.payload.id].items, action.payload]
+                : [
+                      ...state.items[
+                          action.payload.id +
+                              '_' +
+                              action.payload.type +
+                              action.payload.size
+                      ].items,
+                      action.payload,
+                  ]
 
             const newItems = {
                 ...state.items,
-                [action.payload.id]: {
+                [action.payload.id +
+                '_' +
+                action.payload.type +
+                action.payload.size]: {
                     items: currentPizzaItems,
-                    totalPrice: getTotalPrice(currentPizzaItems),
+                    groupCount: currentPizzaItems.length,
+                    groupPrice: getGroupPrice(currentPizzaItems),
                 },
             }
 
-            const totalCount = getTotalSum(newItems, 'items.length')
-            const totalPrice = getTotalSum(newItems, 'totalPrice')
+            const totalCount = getTotalCount(newItems)
+            const totalPrice = getTotalPrice(newItems)
 
             return {
                 ...state,
@@ -50,7 +61,7 @@ const cart = (state = initialState, action) => {
             const newItems = {
                 ...state.items,
             }
-            const currentTotalPrice = newItems[action.payload].totalPrice
+            const currentTotalPrice = newItems[action.payload].groupPrice
             const currentTotalCount = newItems[action.payload].items.length
             delete newItems[action.payload]
             return {
@@ -70,12 +81,13 @@ const cart = (state = initialState, action) => {
                 ...state.items,
                 [action.payload]: {
                     items: newObjItems,
-                    totalPrice: getTotalPrice(newObjItems),
+                    groupCount: newObjItems.length,
+                    groupPrice: getGroupPrice(newObjItems),
                 },
             }
 
-            const totalCount = getTotalSum(newItems, 'items.length')
-            const totalPrice = getTotalSum(newItems, 'totalPrice')
+            const totalCount = getTotalCount(newItems)
+            const totalPrice = getTotalPrice(newItems)
 
             return {
                 ...state,
@@ -95,12 +107,13 @@ const cart = (state = initialState, action) => {
                 ...state.items,
                 [action.payload]: {
                     items: newObjItems,
-                    totalPrice: getTotalPrice(newObjItems),
+                    groupCount: newObjItems.length,
+                    groupPrice: getGroupPrice(newObjItems),
                 },
             }
 
-            const totalCount = getTotalSum(newItems, 'items.length')
-            const totalPrice = getTotalSum(newItems, 'totalPrice')
+            const totalCount = getTotalCount(newItems)
+            const totalPrice = getTotalPrice(newItems)
 
             return {
                 ...state,

@@ -79,14 +79,16 @@ const Home = () => {
                     )}
                     <div className="section__list">
                         {isLoaded
-                            ? items.map((obj) => (
+                            ? items.map((obj, index) => (
                                   <PizzaBlock
                                       onClickAddPizza={handleAddPizzaToCart}
                                       key={obj.id}
                                       {...obj}
                                       addedCount={
-                                          cartItems[obj.id] &&
-                                          cartItems[obj.id].items.length
+                                          Object.keys(cartItems)[index] &&
+                                          cartItems[
+                                              Object.keys(cartItems)[index]
+                                          ].items.length
                                       }
                                   />
                               ))

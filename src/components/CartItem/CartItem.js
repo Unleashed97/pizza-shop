@@ -10,8 +10,8 @@ const CartItem = ({
     title,
     type,
     size,
-    totalPrice,
-    totalCount,
+    groupPrice,
+    groupCount,
     onRemove,
     onPlus,
     onMinus,
@@ -26,6 +26,7 @@ const CartItem = ({
     const handleMinusItem = () => {
         onMinus(id)
     }
+
     return (
         <li className="cart-item">
             <div className="cart-item__about">
@@ -51,7 +52,7 @@ const CartItem = ({
                         />
                     </svg>
                 </Button>
-                <span className="cart-item__count">{totalCount}</span>
+                <span className="cart-item__count">{groupCount}</span>
                 <Button className="btn--operator" onClick={handlePlusItem}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +67,7 @@ const CartItem = ({
                     </svg>
                 </Button>
             </div>
-            <div className="cart-item__price">{totalPrice}</div>
+            <div className="cart-item__price">{groupPrice} ₽</div>
             <Button
                 className="btn--operator delete"
                 onClick={handleRemoveClick}

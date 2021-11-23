@@ -104,16 +104,28 @@ const Cart = () => {
                     </header>
                     <div className="cart__body">
                         <ul className="cart__list">
-                            {/* {allCartItems.map((pizza, index) => (
+                            {addedPizzas.map((obj, index) => (
                                 <CartItem
-                                    image={pizza.image}
-                                    title={pizza.title}
-                                    type={pizza.type}
-                                    size={pizza.size}
+                                    id={Object.keys(items)[index]}
+                                    image={obj.image}
+                                    title={obj.title}
+                                    type={obj.type}
+                                    size={obj.size}
+                                    groupPrice={
+                                        items[Object.keys(items)[index]]
+                                            .groupPrice
+                                    }
+                                    groupCount={
+                                        items[Object.keys(items)[index]]
+                                            .groupCount
+                                    }
+                                    onRemove={onRemoveItem}
+                                    onPlus={onPlusItem}
+                                    onMinus={onMinusItem}
                                     key={index}
                                 />
-                            ))} */}
-                            {addedPizzas.map((obj, index) => (
+                            ))}
+                            {/* {addedPizzas.map((obj, index) => (
                                 <CartItem
                                     id={obj.id}
                                     image={obj.image}
@@ -127,7 +139,7 @@ const Cart = () => {
                                     onMinus={onMinusItem}
                                     key={index}
                                 />
-                            ))}
+                            ))} */}
                         </ul>
                     </div>
                     <footer className="cart__footer">
