@@ -12,8 +12,8 @@ React js application for pizza sell shop.
 -   SCSS
 -   Json Server
 
+[demo](https://react-pizza-shop1.herokuapp.com/)
 
 ---
 
-Study project from Archakov Dennis
-
+Study project from [Archakov Dennis](https://github.com/Archakov06/react-pizza)
