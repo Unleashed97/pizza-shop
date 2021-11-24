@@ -12,6 +12,8 @@ body {
     font-weight: 700;
     background-color: $background;
     padding: 40px;
+
+    overflow-y: scroll;
 }
 
 *,

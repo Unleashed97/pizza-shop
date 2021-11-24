@@ -1,17 +1,4 @@
 .cart-button {
-    display: flex;
-    align-items: center;
-    font-family: 'Proxima Nova', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: #ffffff;
-
-    border: 0;
-    border-radius: 30px;
-    background-color: #fe5f1e;
-    padding: 15px 23px;
-    cursor: pointer;
-
     &__sum {
         margin-right: 13px;
     }

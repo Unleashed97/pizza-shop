@@ -36,6 +36,10 @@ const Home = () => {
     const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded)
     const { category, sortBy } = useSelector(({ filters }) => filters)
 
+    // console.log(cartItems)
+    // console.log(Object.keys(cartItems))
+    // Object.keys(cartItems).map((item) => console.log(item[0]))
+
     useEffect(() => {
         dispatch(fetchPizzas(category, sortBy))
     }, [category, sortBy])
@@ -79,19 +83,64 @@ const Home = () => {
                     )}
                     <div className="section__list">
                         {isLoaded
-                            ? items.map((obj, index) => (
-                                  <PizzaBlock
-                                      onClickAddPizza={handleAddPizzaToCart}
-                                      key={obj.id}
-                                      {...obj}
-                                      addedCount={
-                                          Object.keys(cartItems)[index] &&
-                                          cartItems[
-                                              Object.keys(cartItems)[index]
-                                          ].items.length
-                                      }
-                                  />
-                              ))
+                            ? items.map((obj, index) => {
+                                  //   Object.keys(cartItems)
+                                  //       ? Object.entries(cartItems).map(
+                                  //             ([key, value]) => {
+                                  //                 let sum
+                                  //                 if (Number(key[0]) === index) {
+                                  //                     sum+= value.items.length
+                                  //                 }
+                                  //                 return sum
+                                  //             },
+                                  //         )
+                                  //       :
+                                  //          console.log(
+
+                                  //                 Object.keys(cartItems).filter(
+                                  //                     (item) =>
+                                  //                         Number(item[0]) === index,
+                                  //                 ),
+                                  //             )
+                                  //         Object.keys(cartItems).forEach(
+                                  //             (item) => {
+                                  //                 if (item[0] == index) {
+                                  //                     return console.log(item[0])
+                                  //                 }
+                                  //             },
+                                  //         )
+                                  //         console.log()
+                                  return (
+                                      <PizzaBlock
+                                          onClickAddPizza={handleAddPizzaToCart}
+                                          key={obj.id}
+                                          {...obj}
+                                          addedCount={
+                                              Object.keys(cartItems).filter(
+                                                  (item) =>
+                                                      Number(item[0]) ===
+                                                      obj.id,
+                                              ).length &&
+                                              Object.entries(cartItems)
+                                                  .map(([key, value]) => {
+                                                      if (
+                                                          Number(key[0]) ===
+                                                          obj.id
+                                                      ) {
+                                                          return value.items
+                                                              .length
+                                                      }
+                                                      return 0
+                                                  })
+                                                  .reduce(
+                                                      (sum, value) =>
+                                                          sum + value,
+                                                      0,
+                                                  )
+                                          }
+                                      />
+                                  )
+                              })
                             : Array(8)
                                   .fill(0)
                                   .map((_, index) => (

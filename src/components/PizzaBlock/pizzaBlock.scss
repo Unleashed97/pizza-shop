@@ -1,9 +1,6 @@
 .pizza-block {
     display: grid;
-    grid-template-rows: auto;
-    // display: flex;
-    // flex-direction: column;
-    // width: 23%;
+    grid-template-rows: auto auto 1fr auto auto;
 
     font-family: 'Proxima Nova', sans-serif;
     font-weight: 700;
@@ -14,19 +11,17 @@
         max-width: 100%;
         height: auto;
         margin: 0 auto;
-        margin-bottom: 5px;
+        margin-bottom: 17px;
     }
 
     &__title {
         font-size: 20px;
         font-weight: 800;
-        margin-top: 11px;
         margin-bottom: 22px;
         text-align: center;
     }
 
     &__description {
-        flex: 1 0 auto;
         font-size: 15px;
         font-weight: 400;
         color: rgba(#000, 0.6);
