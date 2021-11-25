@@ -30,7 +30,6 @@
         padding: 13px 16px;
         transition: background-color 0.2s linear, color 0.2s linear;
 
-        // &:not(.active):hover
         &:hover {
             background-color: darken(#f9f9f9, 4%);
         }
@@ -39,8 +38,6 @@
             background-color: #282828;
             color: #fff;
         }
-
-        // &--active
     }
 
     &--sorting {

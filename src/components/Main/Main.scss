@@ -1,3 +1,4 @@
+@import '../../scss/vars';
 .content {
     padding: 40px 0;
 
@@ -5,5 +6,26 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+}
+
+@media (min-width: $xs) {
+    .content {
+        padding: 15px 0;
+
+        &__top {
+            flex-direction: column;
+            // justify-content: flex-start;
+            align-items: start;
+        }
+    }
+}
+@media (min-width: $lg) {
+    .content {
+        padding: 40px 0;
+        &__top {
+            flex-direction: row;
+            align-items: center;
+        }
     }
 }

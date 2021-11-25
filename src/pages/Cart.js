@@ -125,21 +125,6 @@ const Cart = () => {
                                     key={index}
                                 />
                             ))}
-                            {/* {addedPizzas.map((obj, index) => (
-                                <CartItem
-                                    id={obj.id}
-                                    image={obj.image}
-                                    title={obj.title}
-                                    type={obj.type}
-                                    size={obj.size}
-                                    totalPrice={items[obj.id].totalPrice}
-                                    totalCount={items[obj.id].items.length}
-                                    onRemove={onRemoveItem}
-                                    onPlus={onPlusItem}
-                                    onMinus={onMinusItem}
-                                    key={index}
-                                />
-                            ))} */}
                         </ul>
                     </div>
                     <footer className="cart__footer">
@@ -187,8 +172,8 @@ const Cart = () => {
                         <span className="cart__emoji">&#x1F615;</span>
                     </div>
                     <p className="cart__sub-title">
-                        Вероятней всего, вы не заказывали ещё пиццу. Для того,
-                        чтобы заказать пиццу, перейди на главную страницу.
+                        Вероятней всего, вы еще не выбрали пиццу. Для того,
+                        чтобы выбрать пиццу, перейди на главную страницу.
                     </p>
 
                     <img className="cart__image" src={shoppingCart} alt="" />

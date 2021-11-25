@@ -1,9 +1,38 @@
+@import '../../scss/vars';
 .nav {
     &__list {
         display: flex;
+        flex-wrap: wrap;
     }
 
     &__item {
         margin-right: 9px;
+    }
+}
+
+@media (min-width: $xs) {
+    .nav {
+        &__list {
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+
+        &__item {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media (min-width: $lg) {
+    .nav {
+        &__list {
+            flex-direction: row;
+            margin-bottom: 0;
+        }
+        &__item {
+            margin-right: 9px;
+            margin-bottom: 0;
+        }
     }
 }
