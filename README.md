@@ -3,7 +3,7 @@
 React js app for pizza sell shop.
 
 ## Preview
-![preview image Pizza Shop](https://github.com/Unleashed97/pizza-shop/blob/docs/pizza-shop-preview.jpg?raw=true)
+![preview image Pizza Shop](https://github.com/Unleashed97/pizza-shop/blob/master/docs/pizza-shop-preview.jpg?raw=true)
 
 ## Stack
 
