@@ -1,6 +1,9 @@
 # Pizza Shop
 
-React js application for pizza sell shop.
+React js app for pizza sell shop.
+
+## Preview
+![preview image Pizza Shop](https://github.com/Unleashed97/pizza-shop/blob/docs/pizza-shop-preview.jpg?raw=true)
 
 ## Stack
 
